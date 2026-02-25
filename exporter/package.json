@@ -1,0 +1,29 @@
+{
+  "name": "etheria-glb-export",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Export Etheria tiles to .glb (old + new builds)",
+  "main": "index.js",
+  "scripts": {
+    "etheria": "node src/export-tile.js",
+    "old": "node src/export-tile.js --mode old",
+    "new": "node src/export-tile.js --mode new",
+    "auto": "node src/export-tile.js --mode auto",
+    "help": "node src/export-tile.js --help",
+    "test": "echo \"No tests yet\" && exit 0"
+  },
+  "keywords": [
+    "etheria",
+    "glb",
+    "gltf",
+    "voxel",
+    "exporter"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@gltf-transform/core": "^4.3.0",
+    "commander": "^14.0.3",
+    "ethers": "^6.16.0"
+  }
+}
