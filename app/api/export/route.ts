@@ -4,6 +4,11 @@ import path from "node:path";
 import os from "node:os";
 import fs from "node:fs/promises";
 
+// ✅ Force Vercel/Next to bundle these deps into the server function:
+import "commander";
+import "ethers";
+import "@gltf-transform/core";
+
 export const runtime = "nodejs"; // IMPORTANT: needs Node, not Edge.
 
 type Payload = {
@@ -51,7 +56,10 @@ export async function POST(req: Request) {
 
     const rpcUrl = body.rpc || process.env.RPC_URL;
     if (!rpcUrl) {
-      return NextResponse.json({ error: "Missing RPC_URL (set it in .env.local or Vercel env vars)" }, { status: 500 });
+      return NextResponse.json(
+        { error: "Missing RPC_URL (set it in .env.local or Vercel env vars)" },
+        { status: 500 }
+      );
     }
 
     const version = body.version || "1.2";
