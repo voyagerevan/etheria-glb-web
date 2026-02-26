@@ -60,6 +60,10 @@ export function addVoxelMesh(doc, scene, mat, voxels, centerOffset = 0.0) {
 
   const mesh = doc.createMesh().addPrimitive(prim);
   const node = doc.createNode().setMesh(mesh);
+
+  // ✅ FIX: flip upside-down geometry (180° around X axis)
+  node.setRotation([1, 0, 0, 0]);
+
   scene.addChild(node);
 }
 
